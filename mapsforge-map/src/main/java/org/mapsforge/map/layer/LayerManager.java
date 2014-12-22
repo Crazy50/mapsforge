@@ -16,6 +16,8 @@
  */
 package org.mapsforge.map.layer;
 
+import com.google.j2objc.annotations.AutoreleasePool;
+
 import org.mapsforge.core.graphics.Bitmap;
 import org.mapsforge.core.graphics.Canvas;
 import org.mapsforge.core.graphics.GraphicFactory;
@@ -70,6 +72,7 @@ public class LayerManager extends PausableThread implements Redrawer {
 	}
 
 	@Override
+	@AutoreleasePool
 	protected void doWork() throws InterruptedException {
 		long startTime = System.nanoTime();
 		this.redrawNeeded = false;

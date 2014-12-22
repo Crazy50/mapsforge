@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.google.j2objc.annotations.AutoreleasePool;
+
 import org.mapsforge.core.graphics.GraphicFactory;
 import org.mapsforge.core.graphics.TileBitmap;
 import org.mapsforge.map.layer.Layer;
@@ -52,6 +54,7 @@ class TileDownloadThread extends PausableThread {
 	}
 
 	@Override
+	@AutoreleasePool
 	protected void doWork() throws InterruptedException {
 		DownloadJob downloadJob = this.jobQueue.get();
 

@@ -17,6 +17,8 @@
  */
 package org.mapsforge.map.model;
 
+import com.google.j2objc.annotations.AutoreleasePool;
+
 import org.mapsforge.core.model.BoundingBox;
 import org.mapsforge.core.model.LatLong;
 import org.mapsforge.core.model.MapPosition;
@@ -43,6 +45,7 @@ public class MapViewPosition extends Observable implements Persistable {
 		private long timeStart;
 
 		@Override
+		@AutoreleasePool
 		protected void doWork() throws InterruptedException {
 			if (System.currentTimeMillis() >= this.timeEnd) {
 				this.executeAnimation = false;
@@ -262,7 +265,7 @@ public class MapViewPosition extends Observable implements Persistable {
 
 	/**
 	 * Animates the center position of the map by the given amount of pixels.
-	 * 
+	 *
 	 * @param moveHorizontal
 	 *            the amount of pixels to move this MapViewPosition horizontally.
 	 * @param moveVertical
@@ -274,7 +277,7 @@ public class MapViewPosition extends Observable implements Persistable {
 
 	/**
 	 * Moves the center position of the map by the given amount of pixels.
-	 * 
+	 *
 	 * @param moveHorizontal
 	 *            the amount of pixels to move this MapViewPosition horizontally.
 	 * @param moveVertical
@@ -288,7 +291,7 @@ public class MapViewPosition extends Observable implements Persistable {
 
 	/**
 	 * Animates the center position of the map by the given amount of pixels.
-	 * 
+	 *
 	 * @param moveHorizontal
 	 *            the amount of pixels to move this MapViewPosition horizontally.
 	 * @param moveVertical
@@ -302,7 +305,7 @@ public class MapViewPosition extends Observable implements Persistable {
 
 	/**
 	 * Moves the center position of the map by the given amount of pixels.
-	 * 
+	 *
 	 * @param moveHorizontal
 	 *            the amount of pixels to move this MapViewPosition horizontally.
 	 * @param moveVertical
@@ -397,7 +400,7 @@ public class MapViewPosition extends Observable implements Persistable {
 	 * the view center is (this is indicated by setting the pivot to null), but when hand-zooming the pivot point can be
 	 * any point on the map. It is stored as lat/long and retrieved as an x/y coordinate depending on the current zoom
 	 * level.
-	 * 
+	 *
 	 * @param pivot
 	 *            lat/long of pivot point, null for map center
 	 */
@@ -428,7 +431,7 @@ public class MapViewPosition extends Observable implements Persistable {
 	 * Sets the new zoom level of the map.
 	 * <p/>
 	 * Note: The default zoom level changes are animated.
-	 * 
+	 *
 	 * @throws IllegalArgumentException
 	 *             if the zoom level is negative.
 	 */
@@ -438,7 +441,7 @@ public class MapViewPosition extends Observable implements Persistable {
 
 	/**
 	 * Sets the new zoom level of the map
-	 * 
+	 *
 	 * @param zoomLevel
 	 *            desired zoom level
 	 * @param animated

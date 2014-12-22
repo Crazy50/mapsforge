@@ -14,6 +14,8 @@
  */
 package org.mapsforge.map.util;
 
+import com.google.j2objc.annotations.AutoreleasePool;
+
 /**
  * An abstract base class for threads which support pausing and resuming.
  */
@@ -113,6 +115,7 @@ public abstract class PausableThread extends Thread {
 	}
 
 	@Override
+	@AutoreleasePool
 	public final void run() {
 		setName(getClass().getSimpleName());
 		setPriority(getThreadPriority().priority);
@@ -156,7 +159,7 @@ public abstract class PausableThread extends Thread {
 
 	/**
 	 * Called when this thread is not paused and should do its work.
-	 * 
+	 *
 	 * @throws InterruptedException
 	 *             if the thread has been interrupted.
 	 */
